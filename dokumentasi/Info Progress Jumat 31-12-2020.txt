@@ -1,0 +1,4 @@
+Melanjutkan projek uas, dengan membuat migrate dan model
+dan juga sudah menginstall jetstream untuk login, 
+sudah menginputkan data user, seperti nama : andi kurniawan
+email : andi@gmail.com dan password : 12345678
