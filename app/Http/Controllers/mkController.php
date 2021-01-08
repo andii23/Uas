@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CrudController extends Controller
+class mkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,9 @@ class CrudController extends Controller
      */
     public function index()
     {
-        //
+        //menampilkan table matkul
+        $datamk = tbmatkul::get();
+        return view ('isi.indexmk', compact ('datamk'));
     }
 
     /**

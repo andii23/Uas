@@ -1,0 +1,2 @@
+Sudah membuat controller : mhController dan mkController
+sudah membuat template.blade, indexmh.blade dan createmh.blade, namun masih terdapat error yang tidak saya mengerti, sudah cari penyelesaiannya namun masih belum bisa diperbaiki errornya

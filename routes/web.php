@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\mhController;
+use App\Http\Controllers\mkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/home',CrudController::class);
+Route::resource('/mahasiswa',mhController::class);
+Route::resource('/matkul',mkController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
