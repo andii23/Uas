@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tbmahasiswa;
+use App\Models\tbmatkul;
 class mhController extends Controller
 {
     /**
@@ -29,7 +30,8 @@ class mhController extends Controller
         //
         //menampilkan form nambah mahasiswa
         $datamh = tbmahasiswa::get();
-        return view ('isi.createmh', compact ('datamh'));
+        $datamk = tbmatkul::get();
+        return view ('isi.createmh', compact ('datamh','datamk'));
     }
 
     /**
@@ -41,6 +43,29 @@ class mhController extends Controller
     public function store(Request $request)
     {
         //
+        //buat validasi
+        $aturan = [
+            'nim'=> 'required|numeric',
+            'nama'=> 'required',
+            'alamat'=> 'required',
+            'jeniskelamin'=> 'required',
+            'idmatkul'=> 'required',
+        ];
+        $msg = [
+            'required'=>'wajib diisi!!!',
+            'numeric'=>'harus angka!!!',
+        ];
+        //proses validasi form
+        $this->validate($request,$aturan,$msg);
+        //menambahkan data baru
+        tbmahasiswa::create([
+                'nim'=> $request->nim,
+                'nama'=> $request->nama,
+                'alamat'=> $request->alamat,
+                'jeniskelamin'=> $request->jeniskelamin,
+                'idmatkul'=> $request->idmatkul,
+        ]);
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -63,6 +88,9 @@ class mhController extends Controller
     public function edit($id)
     {
         //
+        $edit = tbmahasiswa::where('id', $id)->first();
+        $datamk =tbmatkul::get();
+        return view('isi.editmh', compact('edit','datamk'));
     }
 
     /**
@@ -75,6 +103,29 @@ class mhController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //buat validasi
+        $aturan = [
+            'nim'=> 'required|numeric',
+            'nama'=> 'required',
+            'alamat'=> 'required',
+            'jeniskelamin'=> 'required',
+            'idmatkul'=> 'required',
+        ];
+        $msg = [
+            'required'=>'wajib diisi!!!',
+            'numeric'=>'harus angka!!!',
+        ];
+        //proses validasi form
+        $this->validate($request,$aturan,$msg);
+        //menambahkan data baru
+        tbmahasiswa::where('id', $id)->update([
+                'nim'=> $request->nim,
+                'nama'=> $request->nama,
+                'alamat'=> $request->alamat,
+                'jeniskelamin'=> $request->jeniskelamin,
+                'idmatkul'=> $request->idmatkul,
+        ]);
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -85,6 +136,8 @@ class mhController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //proses hapus
+        tbmahasiswa::where('id', $id)->delete();
+          return redirect()->route('mahasiswa.index');
     }
 }

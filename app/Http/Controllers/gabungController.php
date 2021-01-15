@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\tbmahasiswa;
 use App\Models\tbmatkul;
+use DB;
 
-class mkController extends Controller
+class gabungController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +17,12 @@ class mkController extends Controller
      */
     public function index()
     {
-        //menampilkan table matkul
-        $datamk = tbmatkul::get();
-        $jummk = tbmatkul::count();
-        return view ('isi.indexmk', compact ('datamk','jummk'));
+        //
+        $gabungan = DB::table('tbmahasiswa')
+        ->join('tbmatkul', 'tbmahasiswa.idmatkul','=','tbmatkul.idmatkul')
+        ->select('tbmahasiswa.nim', 'tbmahasiswa.nama', 'tbmatkul.idmatkul', 'tbmatkul.matkul', 'tbmatkul.dosen', 'tbmatkul.jadwal')
+        ->get();
+        return view ('isi.index', compact ('gabungan'));
     }
 
     /**

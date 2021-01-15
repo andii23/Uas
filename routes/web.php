@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\mhController;
 use App\Http\Controllers\mkController;
+use App\Http\Controllers\gabungController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', function () {
 
 Route::resource('/mahasiswa',mhController::class);
 Route::resource('/matkul',mkController::class);
+Route::resource('/home',gabungController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

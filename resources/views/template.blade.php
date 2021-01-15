@@ -23,18 +23,15 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto nav justify-content-center">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{route('home.index')}}">Jadwal <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('mhContoller.index')}}">Data Mahasiswa</a>
+          <a class="nav-link" href="{{route('mahasiswa.index')}}">Data Mahasiswa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('mkContoller.index')}}">Data Mata Kuliah</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('.logout')}}">Logout</a>
+          <a class="nav-link" href="{{route('matkul.index')}}">Data Mata Kuliah</a>
         </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -60,7 +57,7 @@
     <script type="text/javascript">
       $(document).ready(function(){
           $('#caridata').click(function(e){
-              var idCari =  "{{route('prak11.index')}}/" + $('#cx').val();
+              var idCari =  "{{route('mahasiswa.index')}}/" + $('#cx').val();
               window.location.href=idCari;
           )};
       })

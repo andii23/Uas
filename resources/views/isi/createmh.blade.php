@@ -4,7 +4,7 @@
 
 	<h3>Tambah Data Mahasiswa</h3>
 	<div class="container-fluid">
-       <form method="POST" action="{{route('mhController.store')}}">
+       <form method="POST" action="{{route('mahasiswa.store')}}">
         {{csrf_field()}}
         <input type="hidden" name="_method" value="POST">
         <div class="form-group">
@@ -42,10 +42,9 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Jenis Kelamin</label>
-            <select name="jeniskelamin" class="form-control" id="jeniskelamin">
-              @Foreach($datamh as $i=>$k)
-              <option value="{{$k->jeniskelamin}}"> {{$k->jeniskelamin}}</option>    
-              @endforeach
+            <select name="jeniskelamin" class="form-control" id="jeniskelamin" value="{{old('jeniskelamin')}}">
+              <option value="Laki-laki">Laki-laki</option>    
+              <option value="Perempuan">Perempuan</option>
             </select>
             <small id="emailHelp" class="form-text text-muted">pilih jenis kelamin
               @if($errors->has('jeniskelamin'))
@@ -56,7 +55,11 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Mata Kuliah</label>
-            <input type="text" name="idmatkul" class="form-control" id="idmatkul" value="{{old('idmatkul')}}">
+            <select name="idmatkul" class="form-control" id="idmatkul">
+              @Foreach($datamk as $i=>$k)
+              <option value="{{$k->idmatkul}}"> {{$k->idmatkul}}</option>    
+              @endforeach
+            </select>
             <small id="emailHelp" class="form-text text-muted">Isikan Mata Kuliah
             @if($errors->has('idmatkul'))
             <span class="badge badge-danger">

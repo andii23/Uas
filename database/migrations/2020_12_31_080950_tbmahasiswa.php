@@ -20,7 +20,7 @@ class Tbmahasiswa extends Migration
             $table->string('nim');
             $table->string('nama');
             $table->string('alamat');
-            $table->enum('jeniskelamin', ['laki-laki', 'perempuan']);
+            $table->string('jeniskelamin');
             $table->string('idmatkul');
             $table->timestamps();
         });
