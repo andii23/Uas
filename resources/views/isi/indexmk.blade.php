@@ -1,8 +1,7 @@
 @extends('template')
 @section('title', 'data mahasiswa')
 @section('konten')
-
-	<h3>Data Mahasiswa</h3>
+	<h3>Data Mata Kuliah</h3>
 	<sup>total data : {{$jummk}}</sup>
   
 	<table class="table table-striped table-dark">
@@ -15,7 +14,7 @@
       <th scope="col">Jadwal</th>
       <th>
         <div class="container">
-          <a class="btn btn-success btn-sm" href="{{route('mahasiswa.create')}}">Tambah Data</a>
+          <a class="btn btn-success btn-sm" href="{{route('matkul.create')}}">Tambah Data</a>
         </div>
       </th>
      
@@ -30,7 +29,7 @@
       <td>{{$p->matkul}}</td>
       <td>{{$p->dosen}}</td>
       <td>{{$p->jadwal}}</td>
-      <td><a class="btn btn-outline-danger" href="{{route('mahasiswa.edit', $p->id)}}">Edit</a></td>
+      <td><a class="btn btn-outline-warning" href="{{route('matkul.edit', $p->id)}}">Edit</a></td>
       
     </tr>
     @endforeach

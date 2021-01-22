@@ -19,6 +19,10 @@ use App\Http\Controllers\gabungController;
 Route::get('/', function () {
     return view('welcome');
 });
+//Route utk logout
+Route::get('/home/logout',[gabungController::class,'logout'])->name('home.logout');
+Route::get('/mahasiswa/logout',[mhController::class,'logout'])->name('mahasiswa.logout');
+Route::get('/matkul/logout',[mkController::class,'logout'])->name('matkul.logout');
 
 Route::resource('/mahasiswa',mhController::class);
 Route::resource('/matkul',mkController::class);

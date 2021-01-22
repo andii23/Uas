@@ -57,7 +57,7 @@
             <label for="exampleInputEmail1">Mata Kuliah</label>
             <select name="idmatkul" class="form-control" id="idmatkul">
               @Foreach($datamk as $i=>$k)
-              <option value="{{$k->idmatkul}}"> {{$k->idmatkul}}</option>    
+              <option value="{{$k->idmatkul}}"> {{$k->idmatkul}} - {{$k->matkul}}</option>    
               @endforeach
             </select>
             <small id="emailHelp" class="form-text text-muted">Isikan Mata Kuliah

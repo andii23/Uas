@@ -3,13 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\tbmahasiswa;
 use App\Models\tbmatkul;
 use DB;
 
 class gabungController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
+    *Log the user out of the application.
+    *
+    *
+    *@return \illuminate\Http\Response
+    */
+    public function logout()
+    {
+        Auth::logout();
+        return redirect ('/home');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -55,6 +70,7 @@ class gabungController extends Controller
     public function show($id)
     {
         //
+    
     }
 
     /**

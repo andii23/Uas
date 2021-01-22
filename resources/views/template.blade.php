@@ -16,31 +16,29 @@
   <body>
 
     <div class="container-fluid">
-        
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto nav justify-content-center">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{route('home.index')}}">Jadwal <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('mahasiswa.index')}}">Data Mahasiswa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('matkul.index')}}">Data Mata Kuliah</a>
-        </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-        <input id="cx" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="button" id="caridata">Search</button>
+        <nav class="navbar .navbar-expand-md navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a type="button" class="btn btn-outline-danger" class="nav-link" href="{{route('home.logout')}}">Logout</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto nav justify-content-center">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{route('home.index')}}">Jadwal <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('mahasiswa.index')}}">Data Mahasiswa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('matkul.index')}}">Data Mata Kuliah</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            <input id="cx" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="button" id="caridata">Search</button>
     </form>
   </div>
         </nav>
-
         <div class="container-fluid">
           @yield('konten')
         </div>

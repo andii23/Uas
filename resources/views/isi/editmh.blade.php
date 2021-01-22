@@ -2,7 +2,7 @@
 @section('title', 'tambah data mahasiswa')
 @section('konten')
 
-	<h3>Tambah Data Mahasiswa</h3>
+	<h3>Edit Data Mahasiswa</h3>
 	<div class="container-fluid">
        <form method="POST" action="{{route('mahasiswa.update', $edit->id)}}">
         {{csrf_field()}}
@@ -58,7 +58,7 @@
             <label for="exampleInputEmail1">Mata Kuliah</label>
             <select name="idmatkul" class="form-control" id="idmatkul">
               @Foreach($datamk as $i=>$k)
-              <option value="{{$k->idmatkul}}"> {{$k->idmatkul}}</option>    
+              <option value="{{$k->idmatkul}}"> {{$k->idmatkul}} - {{$k->matkul}}</option>    
               @endforeach
             </select>
             <small id="emailHelp" class="form-text text-muted">Isikan Mata Kuliah

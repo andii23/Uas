@@ -32,7 +32,7 @@
       <td>{{$p->alamat}}</td>
       <td>{{$p->jeniskelamin}}</td>
       <td>{{$p->idmatkul}}</td>
-      <td><a class="btn btn-outline-danger" href="{{route('mahasiswa.edit', $p->id)}}">Edit</a></td>
+      <td><a class="btn btn-outline-warning" href="{{route('mahasiswa.edit', $p->id)}}">Edit</a></td>
       
     </tr>
     @endforeach
